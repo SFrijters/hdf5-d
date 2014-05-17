@@ -25,17 +25,17 @@ module hdf5.H5Ppublic;
 /* Public headers needed by this file */
 /++
 #include "H5ACpublic.h"
-#include "H5Dpublic.h"
 #include "H5FDpublic.h"
 #include "H5Lpublic.h"
 #include "H5Opublic.h"
 #include "H5MMpublic.h"
-#include "H5Tpublic.h"
 +/
 
 import hdf5.H5public;
+import hdf5.H5Dpublic;
 import hdf5.H5Fpublic;
 import hdf5.H5Ipublic;
+import hdf5.H5Tpublic;
 import hdf5.H5Zpublic;
 
 extern(C):
