@@ -19,26 +19,14 @@ module hdf5.H5Fpublic;
  * This file contains public declarations for the H5F module.
  */
 
-/++
+/++ HEADERS
 /* Public header files needed by this file */
-#include "H5public.h"
 #include "H5ACpublic.h"
-#include "H5Ipublic.h"
 +/
 import hdf5.H5public;
 import hdf5.H5Ipublic;
 
 extern(C):
-
-/++
-/* When this header is included from a private header, don't make calls to H5check() */
-#undef H5CHECK
-#ifndef _H5private_H
-#define H5CHECK          H5check(),
-#else   /* _H5private_H */
-#define H5CHECK
-#endif  /* _H5private_H */
-+/
 
 /*
  * These are the bits that can be passed to the `flags' argument of

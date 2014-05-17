@@ -145,7 +145,7 @@ version(Posix) {
   herr_t H5Ddebug(hid_t dset_id);
 }
 
-/++
+/++ DEPRECATED
 /* Symbols defined for compatibility with previous versions of the HDF5 API.
  *
  * Use of these symbols is deprecated.

@@ -21,30 +21,23 @@
 
 module hdf5.hdf5;
 
-/++
-#include "H5public.h"
+/++ HEADERS
 #include "H5Apublic.h"		/* Attributes				*/
 #include "H5ACpublic.h"		/* Metadata cache			*/
-#include "H5Dpublic.h"		/* Datasets				*/
 #include "H5Epublic.h"		/* Errors				*/
-#include "H5Fpublic.h"		/* Files				*/
 #include "H5FDpublic.h"		/* File drivers				*/
 #include "H5Gpublic.h"		/* Groups				*/
-#include "H5Ipublic.h"		/* ID management			*/
 #include "H5Lpublic.h"		/* Links				*/
 #include "H5MMpublic.h"		/* Memory management			*/
 #include "H5Opublic.h"		/* Object headers			*/
-#include "H5Ppublic.h"		/* Property lists			*/
 #include "H5Rpublic.h"		/* References				*/
 #include "H5Spublic.h"		/* Dataspaces				*/
-#include "H5Tpublic.h"		/* Datatypes				*/
-#include "H5Zpublic.h"		/* Data filters				*/
 +/
 
 public import hdf5.H5public;
 // public import hdf5.H5Apublic;
 // public import hdf5.H5ACpublic;
-// public import hdf5.H5Dpublic;
+public import hdf5.H5Dpublic;
 // public import hdf5.H5Epublic;
 public import hdf5.H5Fpublic;
 // public import hdf5.H5FDpublic;
@@ -56,10 +49,10 @@ public import hdf5.H5Ipublic;
 public import hdf5.H5Ppublic;
 // public import hdf5.H5Rpublic;
 // public import hdf5.H5Spublic;
-// public import hdf5.H5Tpublic;
+public import hdf5.H5Tpublic;
 public import hdf5.H5Zpublic;
 
-/++
+/++ HEADERS
 /* Predefined file drivers */
 #include "H5FDcore.h"		/* Files stored entirely in memory	*/
 #include "H5FDfamily.h"		/* File families 			*/

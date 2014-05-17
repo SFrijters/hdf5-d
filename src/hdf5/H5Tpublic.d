@@ -598,7 +598,7 @@ herr_t H5Tconvert(hid_t src_id, hid_t dst_id, size_t nelmts,
 			  void *buf, void *background, hid_t plist_id);
 }
 
-/++
+/++ DEPRECATED
 /* Symbols defined for compatibility with previous versions of the HDF5 API.
  *
  * Use of these symbols is deprecated.
@@ -625,5 +625,4 @@ int H5Tget_array_dims1(hid_t type_id, hsize_t dims[], int perm[]);
 }
 #endif
 +/
-
 

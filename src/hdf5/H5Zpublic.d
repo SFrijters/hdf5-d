@@ -220,7 +220,7 @@ herr_t H5Zunregister(H5Z_filter_t id);
 htri_t H5Zfilter_avail(H5Z_filter_t id);
 herr_t H5Zget_filter_info(H5Z_filter_t filter, uint *filter_config_flags);
 
-/++
+/++ DEPRECATED
 /* Symbols defined for compatibility with previous versions of the HDF5 API.
  *
  * Use of these symbols is deprecated.

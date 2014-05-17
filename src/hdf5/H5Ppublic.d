@@ -23,7 +23,7 @@ module hdf5.H5Ppublic;
 /* System headers needed by this file */
 
 /* Public headers needed by this file */
-/++
+/++ HEADERS
 #include "H5ACpublic.h"
 #include "H5FDpublic.h"
 #include "H5Lpublic.h"
@@ -43,16 +43,6 @@ extern(C):
 /*****************/
 /* Public Macros */
 /*****************/
-
-/++
-/* When this header is included from a private HDF5 header, don't make calls to H5open() */
-#undef H5OPEN
-#ifndef _H5private_H
-#define H5OPEN        H5open(),
-#else   /* _H5private_H */
-#define H5OPEN
-#endif  /* _H5private_H */
-+/
 
 /*
  * The library's property list classes
@@ -468,7 +458,9 @@ herr_t H5Pset_mcdt_search_cb(hid_t plist_id, H5O_mcdt_search_cb_t func, void *op
 herr_t H5Pget_mcdt_search_cb(hid_t plist_id, H5O_mcdt_search_cb_t *func, void **op_data);
 +/
 
-/++
+}
+
+/++ DEPRECATED
 /* Symbols defined for compatibility with previous versions of the HDF5 API.
  *
  * Use of these symbols is deprecated.
@@ -482,7 +474,6 @@ herr_t H5Pget_mcdt_search_cb(hid_t plist_id, H5O_mcdt_search_cb_t *func, void **
 
 
 /* Typedefs */
-
 
 /* Function prototypes */
 herr_t H5Pregister1(hid_t cls_id, const char *name, size_t size,
@@ -504,4 +495,3 @@ herr_t H5Pget_filter_by_id1(hid_t plist_id, H5Z_filter_t id,
 #endif /* H5_NO_DEPRECATED_SYMBOLS */
 +/
 
-}
