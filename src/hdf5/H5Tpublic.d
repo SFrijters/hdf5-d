@@ -23,6 +23,8 @@ module hdf5.H5Tpublic;
 import hdf5.H5public;
 import hdf5.H5Ipublic;
 
+extern(C):
+
 auto HOFFSET(S,M)() {
   return offsetof(S,M);
 }
