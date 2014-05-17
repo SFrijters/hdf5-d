@@ -15,7 +15,8 @@
 
 module hdf5.H5public;
 
-import core.stdc.stdint;
+public import core.stdc.stdint;
+public import core.sys.posix.sys.types: off_t;
 
 /*
  * This file contains public declarations for the HDF5 module.

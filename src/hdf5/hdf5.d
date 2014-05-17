@@ -49,15 +49,15 @@ public import hdf5.H5public;
 public import hdf5.H5Fpublic;
 // public import hdf5.H5FDpublic;
 // public import hdf5.H5Gpublic;
-// public import hdf5.H5Ipublic;
+public import hdf5.H5Ipublic;
 // public import hdf5.H5Lpublic;
 // public import hdf5.H5MMpublic;
 // public import hdf5.H5Opublic;
-// public import hdf5.H5Ppublic;
+public import hdf5.H5Ppublic;
 // public import hdf5.H5Rpublic;
 // public import hdf5.H5Spublic;
 // public import hdf5.H5Tpublic;
-// public import hdf5.H5Zpublic;
+public import hdf5.H5Zpublic;
 
 /++
 /* Predefined file drivers */
