@@ -101,17 +101,17 @@ enum H5D_fill_value_t {
 /*********************/
 
 /* Define the operator function pointer for H5Diterate() */
-alias herr_t (*H5D_operator_t)(void *elem, hid_t type_id, int ndim,
-				 const hsize_t *point, void *operator_data);
+alias herr_t function(void *elem, hid_t type_id, int ndim,
+				 const hsize_t *point, void *operator_data) H5D_operator_t;
 
 /* Define the operator function pointer for H5Dscatter() */
-alias herr_t (*H5D_scatter_func_t)(const void **src_buf/*out*/,
+alias herr_t function(const void **src_buf/*out*/,
                                      size_t *src_buf_bytes_used/*out*/,
-                                     void *op_data);
+                                     void *op_data) H5D_scatter_func_t;
 
 /* Define the operator function pointer for H5Dgather() */
-alias herr_t (*H5D_gather_func_t)(const void *dst_buf,
-                                    size_t dst_buf_bytes_used, void *op_data);
+alias herr_t function(const void *dst_buf,
+                                    size_t dst_buf_bytes_used, void *op_data) H5D_gather_func_t;
 
 version(Posix) {
   hid_t H5Dcreate2(hid_t loc_id, const char *name, hid_t type_id,

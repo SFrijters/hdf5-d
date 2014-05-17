@@ -92,24 +92,24 @@ enum H5P_CRT_ORDER_INDEXED = 0x0002;
 /*******************/
 
 /* Define property list class callback function pointer types */
-alias herr_t (*H5P_cls_create_func_t)(hid_t prop_id, void *create_data);
-alias herr_t (*H5P_cls_copy_func_t)(hid_t new_prop_id, hid_t old_prop_id,
-                                      void *copy_data);
-alias herr_t (*H5P_cls_close_func_t)(hid_t prop_id, void *close_data);
+alias herr_t function(hid_t prop_id, void *create_data) H5P_cls_create_func_t;
+alias herr_t function(hid_t new_prop_id, hid_t old_prop_id,
+                                      void *copy_data) H5P_cls_copy_func_t;
+alias herr_t function(hid_t prop_id, void *close_data) H5P_cls_close_func_t;
 
 /* Define property list callback function pointer types */
-alias herr_t (*H5P_prp_cb1_t)(const char *name, size_t size, void *value);
-alias herr_t (*H5P_prp_cb2_t)(hid_t prop_id, const char *name, size_t size, void *value);
+alias herr_t function(const char *name, size_t size, void *value) H5P_prp_cb1_t;
+alias herr_t function(hid_t prop_id, const char *name, size_t size, void *value) H5P_prp_cb2_t;
 alias H5P_prp_cb1_t H5P_prp_create_func_t;
 alias H5P_prp_cb2_t H5P_prp_set_func_t;
 alias H5P_prp_cb2_t H5P_prp_get_func_t;
 alias H5P_prp_cb2_t H5P_prp_delete_func_t;
 alias H5P_prp_cb1_t H5P_prp_copy_func_t;
-alias int (*H5P_prp_compare_func_t)(const void *value1, const void *value2, size_t size);
+alias int function(const void *value1, const void *value2, size_t size) H5P_prp_compare_func_t;
 alias H5P_prp_cb1_t H5P_prp_close_func_t;
 
 /* Define property list iteration function type */
-alias herr_t (*H5P_iterate_t)(hid_t id, const char *name, void *iter_data);
+alias herr_t function(hid_t id, const char *name, void *iter_data) H5P_iterate_t;
 
 /* Actual IO mode property */
 enum H5D_mpio_actual_chunk_opt_mode_t {

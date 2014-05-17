@@ -206,15 +206,15 @@ enum H5T_OPAQUE_TAG_MAX = 256; /* Maximum length of an opaque tag */
                                         /* This could be raised without too much difficulty */
 
 /* All datatype conversion functions are... */
-alias herr_t (*H5T_conv_t) (hid_t src_id, hid_t dst_id, H5T_cdata_t *cdata,
+alias herr_t function(hid_t src_id, hid_t dst_id, H5T_cdata_t *cdata,
       size_t nelmts, size_t buf_stride, size_t bkg_stride, void *buf,
-      void *bkg, hid_t dset_xfer_plist);
+      void *bkg, hid_t dset_xfer_plist) H5T_conv_t;
 
 /* Exception handler.  If an exception like overflow happenes during conversion,
  * this function is called if it's registered through H5Pset_type_conv_cb.
  */
-alias H5T_conv_ret_t (*H5T_conv_except_func_t)(H5T_conv_except_t except_type,
-    hid_t src_id, hid_t dst_id, void *src_buf, void *dst_buf, void *user_data);
+alias H5T_conv_ret_t function(H5T_conv_except_t except_type,
+    hid_t src_id, hid_t dst_id, void *src_buf, void *dst_buf, void *user_data) H5T_conv_except_func_t;
 
 
 /*

@@ -69,10 +69,10 @@ enum H5I_INVALID_HID = (-1);
  * can be removed from the ID type. If the function returns negative
  * (failure) then the object will remain in the ID type.
  */
-alias herr_t (*H5I_free_t)(void*);
+alias herr_t function(void*) H5I_free_t;
 
 /* Type of the function to compare objects & keys */
-alias int (*H5I_search_func_t)(void *obj, hid_t id, void *key);
+alias int function(void *obj, hid_t id, void *key) H5I_search_func_t;
 
 /* Public API functions */
 
