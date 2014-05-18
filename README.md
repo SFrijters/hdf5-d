@@ -10,7 +10,11 @@ HDF5 is subject to [its own license](COPYING).
 
 ## Limitations/Known issues
 
-This set of bindings is based on hdf5-1.8.13.
+- This set of bindings is based on hdf5-1.8.13.
 
-This is a work in progress and still completely untested.
+- Similarly to the FORTRAN bindings, it is required to call H5open() manually once before starting to use HDF5. It is recommended to also use H5check_version to check whether the version of these bindings matches the version of the HDF5 library.
+
+- This is a work in progress tested only in the context of its use in [DLBC](https://github.com/SFrijters/DLBC).
+
+- Pull requests to improve these bindings are welcomed!
 
