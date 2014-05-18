@@ -31,7 +31,6 @@ module hdf5.hdf5;
 #include "H5MMpublic.h"		/* Memory management			*/
 #include "H5Opublic.h"		/* Object headers			*/
 #include "H5Rpublic.h"		/* References				*/
-#include "H5Spublic.h"		/* Dataspaces				*/
 +/
 
 public import hdf5.H5public;
@@ -48,7 +47,7 @@ public import hdf5.H5Ipublic;
 // public import hdf5.H5Opublic;
 public import hdf5.H5Ppublic;
 // public import hdf5.H5Rpublic;
-// public import hdf5.H5Spublic;
+public import hdf5.H5Spublic;
 public import hdf5.H5Tpublic;
 public import hdf5.H5Zpublic;
 
@@ -57,7 +56,6 @@ public import hdf5.H5Zpublic;
 #include "H5FDcore.h"		/* Files stored entirely in memory	*/
 #include "H5FDfamily.h"		/* File families 			*/
 #include "H5FDlog.h"        	/* sec2 driver with I/O logging (for debugging) */
-#include "H5FDmpi.h"            /* MPI-based file drivers		*/
 #include "H5FDmulti.h"		/* Usage-partitioned file family	*/
 #include "H5FDsec2.h"		/* POSIX unbuffered file I/O		*/
 #include "H5FDstdio.h"		/* Standard C buffered I/O		*/
@@ -66,4 +64,6 @@ public import hdf5.H5Zpublic;
 #endif
 #include "H5FDdirect.h"     	/* Linux direct I/O			*/
 +/
+
+public import hdf5.H5FDmpio;
 
