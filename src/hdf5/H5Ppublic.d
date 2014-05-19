@@ -344,8 +344,8 @@ herr_t H5Pget_core_write_tracking(hid_t fapl_id, hbool_t *is_enabled, size_t *pa
 /* Dataset creation property list (DCPL) routines */
 herr_t H5Pset_layout(hid_t plist_id, H5D_layout_t layout);
 H5D_layout_t H5Pget_layout(hid_t plist_id);
-herr_t H5Pset_chunk(hid_t plist_id, int ndims, const hsize_t dim[/*ndims*/]);
-int H5Pget_chunk(hid_t plist_id, int max_ndims, hsize_t dim[]/*out*/);
+herr_t H5Pset_chunk(hid_t plist_id, int ndims, const hsize_t *dim/*ndims*/);
+int H5Pget_chunk(hid_t plist_id, int max_ndims, hsize_t *dim/*out*/);
 herr_t H5Pset_external(hid_t plist_id, const char *name, off_t offset,
           hsize_t size);
 int H5Pget_external_count(hid_t plist_id);
