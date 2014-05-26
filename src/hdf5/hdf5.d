@@ -34,7 +34,7 @@ module hdf5.hdf5;
 +/
 
 public import hdf5.H5public;
-// public import hdf5.H5Apublic;
+public import hdf5.H5Apublic;
 // public import hdf5.H5ACpublic;
 public import hdf5.H5Dpublic;
 // public import hdf5.H5Epublic;
@@ -42,9 +42,9 @@ public import hdf5.H5Fpublic;
 // public import hdf5.H5FDpublic;
 // public import hdf5.H5Gpublic;
 public import hdf5.H5Ipublic;
-// public import hdf5.H5Lpublic;
+public import hdf5.H5Lpublic;
 // public import hdf5.H5MMpublic;
-// public import hdf5.H5Opublic;
+public import hdf5.H5Opublic;
 public import hdf5.H5Ppublic;
 // public import hdf5.H5Rpublic;
 public import hdf5.H5Spublic;

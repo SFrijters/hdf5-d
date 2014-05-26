@@ -333,27 +333,25 @@ else {
 #endif
 +/
 
-/++
 /* uint64_t type is used for fields for H5O_info_t.  It may be
  * defined in Posix.1g, otherwise it is defined here.
  */
-#if H5_SIZEOF_UINT64_T>=8
-#elif H5_SIZEOF_INT>=8
-    typedef unsigned uint64_t;
-#   undef H5_SIZEOF_UINT64_T
-#   define H5_SIZEOF_UINT64_T H5_SIZEOF_INT
-#elif H5_SIZEOF_LONG>=8
-    typedef unsigned long uint64_t;
-#   undef H5_SIZEOF_UINT64_T
-#   define H5_SIZEOF_UINT64_T H5_SIZEOF_LONG
-#elif H5_SIZEOF_LONG_LONG>=8
-    typedef unsigned long long uint64_t;
-#   undef H5_SIZEOF_UINT64_T
-#   define H5_SIZEOF_UINT64_T H5_SIZEOF_LONG_LONG
-#else
-#   error "nothing appropriate for uint64_t"
-#endif
-+/
+static if ( H5_SIZEOF_UINT64_T>=8 ) { }
+ else static if ( H5_SIZEOF_INT>=8 ) {
+    alias uint uint64_t;
+    enum H5_SIZEOF_UINT64_T = H5_SIZEOF_INT;
+   }
+ else static if ( H5_SIZEOF_LONG>=8 ) {
+    alias uint uint64_t;
+    enum H5_SIZEOF_UINT64_T = H5_SIZEOF_LONG;
+   }
+ else static if ( H5_SIZEOF_LONG_LONG>=8 ) {
+    alias ulong uint64_t;
+    enum H5_SIZEOF_UINT64_T = H5_SIZEOF_LONG_LONG;
+   }
+   else {
+     static assert(0, "nothing appropriate for uint64_t");
+   }
 
 /* Default value for all property list classes */
 enum H5P_DEFAULT = 0;
