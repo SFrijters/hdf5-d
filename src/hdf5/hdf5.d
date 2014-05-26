@@ -40,7 +40,7 @@ public import hdf5.H5Dpublic;
 // public import hdf5.H5Epublic;
 public import hdf5.H5Fpublic;
 // public import hdf5.H5FDpublic;
-// public import hdf5.H5Gpublic;
+public import hdf5.H5Gpublic;
 public import hdf5.H5Ipublic;
 public import hdf5.H5Lpublic;
 // public import hdf5.H5MMpublic;
