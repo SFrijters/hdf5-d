@@ -47,41 +47,41 @@ extern(C):
 /*
  * The library's property list classes
  */
-alias H5P_CLS_ROOT_g H5P_ROOT;
-alias H5P_CLS_OBJECT_CREATE_g H5P_OBJECT_CREATE;
-alias H5P_CLS_FILE_CREATE_g H5P_FILE_CREATE;
-alias H5P_CLS_FILE_ACCESS_g H5P_FILE_ACCESS;
-alias H5P_CLS_DATASET_CREATE_g H5P_DATASET_CREATE;
-alias H5P_CLS_DATASET_ACCESS_g H5P_DATASET_ACCESS;
-alias H5P_CLS_DATASET_XFER_g H5P_DATASET_XFER;
-alias H5P_CLS_FILE_MOUNT_g H5P_FILE_MOUNT;
-alias H5P_CLS_GROUP_CREATE_g H5P_GROUP_CREATE;
-alias H5P_CLS_GROUP_ACCESS_g H5P_GROUP_ACCESS;
-alias H5P_CLS_DATATYPE_CREATE_g H5P_DATATYPE_CREATE;
-alias H5P_CLS_DATATYPE_ACCESS_g H5P_DATATYPE_ACCESS;
-alias H5P_CLS_STRING_CREATE_g H5P_STRING_CREATE;
-alias H5P_CLS_ATTRIBUTE_CREATE_g H5P_ATTRIBUTE_CREATE;
-alias H5P_CLS_OBJECT_COPY_g H5P_OBJECT_COPY;
-alias H5P_CLS_LINK_CREATE_g H5P_LINK_CREATE;
-alias H5P_CLS_LINK_ACCESS_g H5P_LINK_ACCESS;
+alias H5P_ROOT = H5P_CLS_ROOT_g;
+alias H5P_OBJECT_CREATE = H5P_CLS_OBJECT_CREATE_g;
+alias H5P_FILE_CREATE = H5P_CLS_FILE_CREATE_g;
+alias H5P_FILE_ACCESS = H5P_CLS_FILE_ACCESS_g;
+alias H5P_DATASET_CREATE = H5P_CLS_DATASET_CREATE_g;
+alias H5P_DATASET_ACCESS = H5P_CLS_DATASET_ACCESS_g;
+alias H5P_DATASET_XFER = H5P_CLS_DATASET_XFER_g;
+alias H5P_FILE_MOUNT = H5P_CLS_FILE_MOUNT_g;
+alias H5P_GROUP_CREATE = H5P_CLS_GROUP_CREATE_g;
+alias H5P_GROUP_ACCESS = H5P_CLS_GROUP_ACCESS_g;
+alias H5P_DATATYPE_CREATE = H5P_CLS_DATATYPE_CREATE_g;
+alias H5P_DATATYPE_ACCESS = H5P_CLS_DATATYPE_ACCESS_g;
+alias H5P_STRING_CREATE = H5P_CLS_STRING_CREATE_g;
+alias H5P_ATTRIBUTE_CREATE = H5P_CLS_ATTRIBUTE_CREATE_g;
+alias H5P_OBJECT_COPY = H5P_CLS_OBJECT_COPY_g;
+alias H5P_LINK_CREATE = H5P_CLS_LINK_CREATE_g;
+alias H5P_LINK_ACCESS = H5P_CLS_LINK_ACCESS_g;
 
 /*
  * The library's default property lists
  */
-alias H5P_LST_FILE_CREATE_g H5P_FILE_CREATE_DEFAULT;
-alias H5P_LST_FILE_ACCESS_g H5P_FILE_ACCESS_DEFAULT;
-alias H5P_LST_DATASET_CREATE_g H5P_DATASET_CREATE_DEFAULT;
-alias H5P_LST_DATASET_ACCESS_g H5P_DATASET_ACCESS_DEFAULT;
-alias H5P_LST_DATASET_XFER_g H5P_DATASET_XFER_DEFAULT;
-alias H5P_LST_FILE_MOUNT_g H5P_FILE_MOUNT_DEFAULT;
-alias H5P_LST_GROUP_CREATE_g H5P_GROUP_CREATE_DEFAULT;
-alias H5P_LST_GROUP_ACCESS_g H5P_GROUP_ACCESS_DEFAULT;
-alias H5P_LST_DATATYPE_CREATE_g H5P_DATATYPE_CREATE_DEFAULT;
-alias H5P_LST_DATATYPE_ACCESS_g H5P_DATATYPE_ACCESS_DEFAULT;
-alias H5P_LST_ATTRIBUTE_CREATE_g H5P_ATTRIBUTE_CREATE_DEFAULT;
-alias H5P_LST_OBJECT_COPY_g H5P_OBJECT_COPY_DEFAULT;
-alias H5P_LST_LINK_CREATE_g H5P_LINK_CREATE_DEFAULT;
-alias H5P_LST_LINK_ACCESS_g H5P_LINK_ACCESS_DEFAULT;
+alias H5P_FILE_CREATE_DEFAULT = H5P_LST_FILE_CREATE_g;
+alias H5P_FILE_ACCESS_DEFAULT = H5P_LST_FILE_ACCESS_g;
+alias H5P_DATASET_CREATE_DEFAULT = H5P_LST_DATASET_CREATE_g;
+alias H5P_DATASET_ACCESS_DEFAULT = H5P_LST_DATASET_ACCESS_g;
+alias H5P_DATASET_XFER_DEFAULT = H5P_LST_DATASET_XFER_g;
+alias H5P_FILE_MOUNT_DEFAULT = H5P_LST_FILE_MOUNT_g;
+alias H5P_GROUP_CREATE_DEFAULT = H5P_LST_GROUP_CREATE_g;
+alias H5P_GROUP_ACCESS_DEFAULT = H5P_LST_GROUP_ACCESS_g;
+alias H5P_DATATYPE_CREATE_DEFAULT = H5P_LST_DATATYPE_CREATE_g;
+alias H5P_DATATYPE_ACCESS_DEFAULT = H5P_LST_DATATYPE_ACCESS_g;
+alias H5P_ATTRIBUTE_CREATE_DEFAULT = H5P_LST_ATTRIBUTE_CREATE_g;
+alias H5P_OBJECT_COPY_DEFAULT = H5P_LST_OBJECT_COPY_g;
+alias H5P_LINK_CREATE_DEFAULT = H5P_LST_LINK_CREATE_g;
+alias H5P_LINK_ACCESS_DEFAULT = H5P_LST_LINK_ACCESS_g;
 
 /* Common creation order flags (for links in groups and attributes on objects) */
 enum H5P_CRT_ORDER_TRACKED = 0x0001;
@@ -92,24 +92,23 @@ enum H5P_CRT_ORDER_INDEXED = 0x0002;
 /*******************/
 
 /* Define property list class callback function pointer types */
-alias herr_t function(hid_t prop_id, void *create_data) H5P_cls_create_func_t;
-alias herr_t function(hid_t new_prop_id, hid_t old_prop_id,
-                                      void *copy_data) H5P_cls_copy_func_t;
-alias herr_t function(hid_t prop_id, void *close_data) H5P_cls_close_func_t;
+alias H5P_cls_create_func_t = herr_t function(hid_t prop_id, void *create_data);
+alias H5P_cls_copy_func_t = herr_t function(hid_t new_prop_id, hid_t old_prop_id, void *copy_data);
+alias H5P_cls_close_func_t = herr_t function(hid_t prop_id, void *close_data);
 
 /* Define property list callback function pointer types */
-alias herr_t function(const char *name, size_t size, void *value) H5P_prp_cb1_t;
-alias herr_t function(hid_t prop_id, const char *name, size_t size, void *value) H5P_prp_cb2_t;
-alias H5P_prp_cb1_t H5P_prp_create_func_t;
-alias H5P_prp_cb2_t H5P_prp_set_func_t;
-alias H5P_prp_cb2_t H5P_prp_get_func_t;
-alias H5P_prp_cb2_t H5P_prp_delete_func_t;
-alias H5P_prp_cb1_t H5P_prp_copy_func_t;
-alias int function(const void *value1, const void *value2, size_t size) H5P_prp_compare_func_t;
-alias H5P_prp_cb1_t H5P_prp_close_func_t;
+alias H5P_prp_cb1_t = herr_t function(const char *name, size_t size, void *value);
+alias H5P_prp_cb2_t = herr_t function(hid_t prop_id, const char *name, size_t size, void *value);
+alias H5P_prp_create_func_t = H5P_prp_cb1_t;
+alias H5P_prp_set_func_t = H5P_prp_cb2_t;
+alias H5P_prp_get_func_t = H5P_prp_cb2_t;
+alias H5P_prp_delete_func_t = H5P_prp_cb2_t;
+alias H5P_prp_copy_func_t = H5P_prp_cb1_t;
+alias H5P_prp_compare_func_t = int function(const void *value1, const void *value2, size_t size);
+alias H5P_prp_close_func_t = H5P_prp_cb1_t;
 
 /* Define property list iteration function type */
-alias herr_t function(hid_t id, const char *name, void *iter_data) H5P_iterate_t;
+alias H5P_iterate_t = herr_t function(hid_t id, const char *name, void *iter_data);
 
 /* Actual IO mode property */
 enum H5D_mpio_actual_chunk_opt_mode_t {

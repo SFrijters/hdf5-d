@@ -208,24 +208,24 @@ enum H5T_OPAQUE_TAG_MAX = 256; /* Maximum length of an opaque tag */
                                         /* This could be raised without too much difficulty */
 
 /* All datatype conversion functions are... */
-alias herr_t function(hid_t src_id, hid_t dst_id, H5T_cdata_t *cdata,
+alias H5T_conv_t = herr_t function(hid_t src_id, hid_t dst_id, H5T_cdata_t *cdata,
       size_t nelmts, size_t buf_stride, size_t bkg_stride, void *buf,
-      void *bkg, hid_t dset_xfer_plist) H5T_conv_t;
+      void *bkg, hid_t dset_xfer_plist);
 
 /* Exception handler.  If an exception like overflow happenes during conversion,
  * this function is called if it's registered through H5Pset_type_conv_cb.
  */
-alias H5T_conv_ret_t function(H5T_conv_except_t except_type,
-    hid_t src_id, hid_t dst_id, void *src_buf, void *dst_buf, void *user_data) H5T_conv_except_func_t;
+alias H5T_conv_except_func_t = H5T_conv_ret_t function(H5T_conv_except_t except_type,
+    hid_t src_id, hid_t dst_id, void *src_buf, void *dst_buf, void *user_data);
 
 
 /*
  * The IEEE floating point types in various byte orders.
  */
-alias H5T_IEEE_F32BE_g H5T_IEEE_F32BE;
-alias H5T_IEEE_F32LE_g H5T_IEEE_F32LE;
-alias H5T_IEEE_F64BE_g H5T_IEEE_F64BE;
-alias H5T_IEEE_F64LE_g H5T_IEEE_F64LE;
+alias H5T_IEEE_F32BE = H5T_IEEE_F32BE_g;
+alias H5T_IEEE_F32LE = H5T_IEEE_F32LE_g;
+alias H5T_IEEE_F64BE = H5T_IEEE_F64BE_g;
+alias H5T_IEEE_F64LE = H5T_IEEE_F64LE_g;
 extern __gshared hid_t H5T_IEEE_F32BE_g;
 extern __gshared hid_t H5T_IEEE_F32LE_g;
 extern __gshared hid_t H5T_IEEE_F64BE_g;
@@ -235,32 +235,32 @@ extern __gshared hid_t H5T_IEEE_F64LE_g;
  * These are "standard" types.  For instance, signed (2's complement) and
  * unsigned integers of various sizes and byte orders.
  */
-alias H5T_STD_I8BE_g H5T_STD_I8BE;
-alias H5T_STD_I8LE_g H5T_STD_I8LE;
-alias H5T_STD_I16BE_g H5T_STD_I16BE;
-alias H5T_STD_I16LE_g H5T_STD_I16LE;
-alias H5T_STD_I32BE_g H5T_STD_I32BE;
-alias H5T_STD_I32LE_g H5T_STD_I32LE;
-alias H5T_STD_I64BE_g H5T_STD_I64BE;
-alias H5T_STD_I64LE_g H5T_STD_I64LE;
-alias H5T_STD_U8BE_g H5T_STD_U8BE;
-alias H5T_STD_U8LE_g H5T_STD_U8LE;
-alias H5T_STD_U16BE_g H5T_STD_U16BE;
-alias H5T_STD_U16LE_g H5T_STD_U16LE;
-alias H5T_STD_U32BE_g H5T_STD_U32BE;
-alias H5T_STD_U32LE_g H5T_STD_U32LE;
-alias H5T_STD_U64BE_g H5T_STD_U64BE;
-alias H5T_STD_U64LE_g H5T_STD_U64LE;
-alias H5T_STD_B8BE_g H5T_STD_B8BE;
-alias H5T_STD_B8LE_g H5T_STD_B8LE;
-alias H5T_STD_B16BE_g H5T_STD_B16BE;
-alias H5T_STD_B16LE_g H5T_STD_B16LE;
-alias H5T_STD_B32BE_g H5T_STD_B32BE;
-alias H5T_STD_B32LE_g H5T_STD_B32LE;
-alias H5T_STD_B64BE_g H5T_STD_B64BE;
-alias H5T_STD_B64LE_g H5T_STD_B64LE;
-alias H5T_STD_REF_OBJ_g H5T_STD_REF_OBJ;
-alias H5T_STD_REF_DSETREG_g H5T_STD_REF_DSETREG;
+alias H5T_STD_I8BE = H5T_STD_I8BE_g;
+alias H5T_STD_I8LE = H5T_STD_I8LE_g;
+alias H5T_STD_I16BE = H5T_STD_I16BE_g;
+alias H5T_STD_I16LE = H5T_STD_I16LE_g;
+alias H5T_STD_I32BE = H5T_STD_I32BE_g;
+alias H5T_STD_I32LE = H5T_STD_I32LE_g;
+alias H5T_STD_I64BE = H5T_STD_I64BE_g;
+alias H5T_STD_I64LE = H5T_STD_I64LE_g;
+alias H5T_STD_U8BE = H5T_STD_U8BE_g;
+alias H5T_STD_U8LE = H5T_STD_U8LE_g;
+alias H5T_STD_U16BE = H5T_STD_U16BE_g;
+alias H5T_STD_U16LE = H5T_STD_U16LE_g;
+alias H5T_STD_U32BE = H5T_STD_U32BE_g;
+alias H5T_STD_U32LE = H5T_STD_U32LE_g;
+alias H5T_STD_U64BE = H5T_STD_U64BE_g;
+alias H5T_STD_U64LE = H5T_STD_U64LE_g;
+alias H5T_STD_B8BE = H5T_STD_B8BE_g;
+alias H5T_STD_B8LE = H5T_STD_B8LE_g;
+alias H5T_STD_B16BE = H5T_STD_B16BE_g;
+alias H5T_STD_B16LE = H5T_STD_B16LE_g;
+alias H5T_STD_B32BE = H5T_STD_B32BE_g;
+alias H5T_STD_B32LE = H5T_STD_B32LE_g;
+alias H5T_STD_B64BE = H5T_STD_B64BE_g;
+alias H5T_STD_B64LE = H5T_STD_B64LE_g;
+alias H5T_STD_REF_OBJ = H5T_STD_REF_OBJ_g;
+alias H5T_STD_REF_DSETREG = H5T_STD_REF_DSETREG_g;
 extern __gshared hid_t H5T_STD_I8BE_g;
 extern __gshared hid_t H5T_STD_I8LE_g;
 extern __gshared hid_t H5T_STD_I16BE_g;
@@ -291,10 +291,10 @@ extern __gshared hid_t H5T_STD_REF_DSETREG_g;
 /*
  * Types which are particular to Unix.
  */
-alias H5T_UNIX_D32BE_g H5T_UNIX_D32BE;
-alias H5T_UNIX_D32LE_g H5T_UNIX_D32LE;
-alias H5T_UNIX_D64BE_g H5T_UNIX_D64BE;
-alias H5T_UNIX_D64LE_g H5T_UNIX_D64LE;
+alias H5T_UNIX_D32BE = H5T_UNIX_D32BE_g;
+alias H5T_UNIX_D32LE = H5T_UNIX_D32LE_g;
+alias H5T_UNIX_D64BE = H5T_UNIX_D64BE_g;
+alias H5T_UNIX_D64LE = H5T_UNIX_D64LE_g;
 extern __gshared hid_t H5T_UNIX_D32BE_g;
 extern __gshared hid_t H5T_UNIX_D32LE_g;
 extern __gshared hid_t H5T_UNIX_D64BE_g;
@@ -304,13 +304,13 @@ extern __gshared hid_t H5T_UNIX_D64LE_g;
  * Types particular to the C language.  String types use `bytes' instead
  * of `bits' as their size.
  */
-alias H5T_C_S1_g H5T_C_S1;
+alias H5T_C_S1 = H5T_C_S1_g;
 extern __gshared hid_t H5T_C_S1_g;
 
 /*
  * Types particular to Fortran.
  */
-alias H5T_FORTRAN_S1_g H5T_FORTRAN_S1;
+alias H5T_FORTRAN_S1 = H5T_FORTRAN_S1_g;
 extern __gshared hid_t H5T_FORTRAN_S1_g;
 
 
@@ -318,64 +318,64 @@ extern __gshared hid_t H5T_FORTRAN_S1_g;
  * These types are for Intel CPU's.  They are little endian with IEEE
  * floating point.
  */
-alias H5T_STD_I8LE H5T_INTEL_I8;
-alias H5T_STD_I16LE H5T_INTEL_I16;
-alias H5T_STD_I32LE H5T_INTEL_I32;
-alias H5T_STD_I64LE H5T_INTEL_I64;
-alias H5T_STD_U8LE H5T_INTEL_U8;
-alias H5T_STD_U16LE H5T_INTEL_U16;
-alias H5T_STD_U32LE H5T_INTEL_U32;
-alias H5T_STD_U64LE H5T_INTEL_U64;
-alias H5T_STD_B8LE H5T_INTEL_B8;
-alias H5T_STD_B16LE H5T_INTEL_B16;
-alias H5T_STD_B32LE H5T_INTEL_B32;
-alias H5T_STD_B64LE H5T_INTEL_B64;
-alias H5T_IEEE_F32LE H5T_INTEL_F32;
-alias H5T_IEEE_F64LE H5T_INTEL_F64;
+alias H5T_INTEL_I8 = H5T_STD_I8LE;
+alias H5T_INTEL_I16 = H5T_STD_I16LE;
+alias H5T_INTEL_I32 = H5T_STD_I32LE;
+alias H5T_INTEL_I64 = H5T_STD_I64LE;
+alias H5T_INTEL_U8 = H5T_STD_U8LE;
+alias H5T_INTEL_U16 = H5T_STD_U16LE;
+alias H5T_INTEL_U32 = H5T_STD_U32LE;
+alias H5T_INTEL_U64 = H5T_STD_U64LE;
+alias H5T_INTEL_B8 = H5T_STD_B8LE;
+alias H5T_INTEL_B16 = H5T_STD_B16LE;
+alias H5T_INTEL_B32 = H5T_STD_B32LE;
+alias H5T_INTEL_B64 = H5T_STD_B64LE;
+alias H5T_INTEL_F32 = H5T_IEEE_F32LE;
+alias H5T_INTEL_F64 = H5T_IEEE_F64LE;
 
 /*
  * These types are for DEC Alpha CPU's.  They are little endian with IEEE
  * floating point.
  */
-alias H5T_STD_I8LE H5T_ALPHA_I8;
-alias H5T_STD_I16LE H5T_ALPHA_I16;
-alias H5T_STD_I32LE H5T_ALPHA_I32;
-alias H5T_STD_I64LE H5T_ALPHA_I64;
-alias H5T_STD_U8LE H5T_ALPHA_U8;
-alias H5T_STD_U16LE H5T_ALPHA_U16;
-alias H5T_STD_U32LE H5T_ALPHA_U32;
-alias H5T_STD_U64LE H5T_ALPHA_U64;
-alias H5T_STD_B8LE H5T_ALPHA_B8;
-alias H5T_STD_B16LE H5T_ALPHA_B16;
-alias H5T_STD_B32LE H5T_ALPHA_B32;
-alias H5T_STD_B64LE H5T_ALPHA_B64;
-alias H5T_IEEE_F32LE H5T_ALPHA_F32;
-alias H5T_IEEE_F64LE H5T_ALPHA_F64;
+alias H5T_ALPHA_I8 = H5T_STD_I8LE;
+alias H5T_ALPHA_I16 = H5T_STD_I16LE;
+alias H5T_ALPHA_I32 = H5T_STD_I32LE;
+alias H5T_ALPHA_I64 = H5T_STD_I64LE;
+alias H5T_ALPHA_U8 = H5T_STD_U8LE;
+alias H5T_ALPHA_U16 = H5T_STD_U16LE;
+alias H5T_ALPHA_U32 = H5T_STD_U32LE;
+alias H5T_ALPHA_U64 = H5T_STD_U64LE;
+alias H5T_ALPHA_B8 = H5T_STD_B8LE;
+alias H5T_ALPHA_B16 = H5T_STD_B16LE;
+alias H5T_ALPHA_B32 = H5T_STD_B32LE;
+alias H5T_ALPHA_B64 = H5T_STD_B64LE;
+alias H5T_ALPHA_F32 = H5T_IEEE_F32LE;
+alias H5T_ALPHA_F64 = H5T_IEEE_F64LE;
 
 /*
  * These types are for MIPS cpu's commonly used in SGI systems. They are big
  * endian with IEEE floating point.
  */
-alias H5T_STD_I8BE H5T_MIPS_I8;
-alias H5T_STD_I16BE H5T_MIPS_I16;
-alias H5T_STD_I32BE H5T_MIPS_I32;
-alias H5T_STD_I64BE H5T_MIPS_I64;
-alias H5T_STD_U8BE H5T_MIPS_U8;
-alias H5T_STD_U16BE H5T_MIPS_U16;
-alias H5T_STD_U32BE H5T_MIPS_U32;
-alias H5T_STD_U64BE H5T_MIPS_U64;
-alias H5T_STD_B8BE H5T_MIPS_B8;
-alias H5T_STD_B16BE H5T_MIPS_B16;
-alias H5T_STD_B32BE H5T_MIPS_B32;
-alias H5T_STD_B64BE H5T_MIPS_B64;
-alias H5T_IEEE_F32BE H5T_MIPS_F32;
-alias H5T_IEEE_F64BE H5T_MIPS_F64;
+alias H5T_MIPS_I8 = H5T_STD_I8BE;
+alias H5T_MIPS_I16 = H5T_STD_I16BE;
+alias H5T_MIPS_I32 = H5T_STD_I32BE;
+alias H5T_MIPS_I64 = H5T_STD_I64BE;
+alias H5T_MIPS_U8 = H5T_STD_U8BE;
+alias H5T_MIPS_U16 = H5T_STD_U16BE;
+alias H5T_MIPS_U32 = H5T_STD_U32BE;
+alias H5T_MIPS_U64 = H5T_STD_U64BE;
+alias H5T_MIPS_B8 = H5T_STD_B8BE;
+alias H5T_MIPS_B16 = H5T_STD_B16BE;
+alias H5T_MIPS_B32 = H5T_STD_B32BE;
+alias H5T_MIPS_B64 = H5T_STD_B64BE;
+alias H5T_MIPS_F32 = H5T_IEEE_F32BE;
+alias H5T_MIPS_F64 = H5T_IEEE_F64BE;
 
 /*
  * The VAX floating point types (i.e. in VAX byte order)
  */
-alias H5T_VAX_F32_g H5T_VAX_F32;
-alias H5T_VAX_F64_g H5T_VAX_F64;
+alias H5T_VAX_F32 = H5T_VAX_F32_g;
+alias H5T_VAX_F64 = H5T_VAX_F64_g;
 extern __gshared hid_t H5T_VAX_F32_g;
 extern __gshared hid_t H5T_VAX_F64_g;
 
@@ -390,39 +390,39 @@ extern __gshared hid_t H5T_VAX_F64_g;
  */
 /++
 static if ( CHAR_MIN ) {
-  alias H5T_NATIVE_SCHAR H5T_NATIVE_CHAR;
+  alias H5T_NATIVE_CHAR = H5T_NATIVE_SCHAR;
 }
 else {
-  alias H5T_NATIVE_UCHAR H5T_NATIVE_CHAR;
+  alias H5T_NATIVE_CHAR = H5T_NATIVE_UCHAR;
 }
 +/
-alias H5T_NATIVE_SCHAR_g H5T_NATIVE_SCHAR;
-alias H5T_NATIVE_UCHAR_g H5T_NATIVE_UCHAR;
-alias H5T_NATIVE_SHORT_g H5T_NATIVE_SHORT;
-alias H5T_NATIVE_USHORT_g H5T_NATIVE_USHORT;
-alias H5T_NATIVE_INT_g H5T_NATIVE_INT;
-alias H5T_NATIVE_UINT_g H5T_NATIVE_UINT;
-alias H5T_NATIVE_LONG_g H5T_NATIVE_LONG;
-alias H5T_NATIVE_ULONG_g H5T_NATIVE_ULONG;
-alias H5T_NATIVE_LLONG_g H5T_NATIVE_LLONG;
-alias H5T_NATIVE_ULLONG_g H5T_NATIVE_ULLONG;
-alias H5T_NATIVE_FLOAT_g H5T_NATIVE_FLOAT;
-alias H5T_NATIVE_DOUBLE_g H5T_NATIVE_DOUBLE;
+alias H5T_NATIVE_SCHAR = H5T_NATIVE_SCHAR_g;
+alias H5T_NATIVE_UCHAR = H5T_NATIVE_UCHAR_g;
+alias H5T_NATIVE_SHORT = H5T_NATIVE_SHORT_g;
+alias H5T_NATIVE_USHORT = H5T_NATIVE_USHORT_g;
+alias H5T_NATIVE_INT = H5T_NATIVE_INT_g;
+alias H5T_NATIVE_UINT = H5T_NATIVE_UINT_g;
+alias H5T_NATIVE_LONG = H5T_NATIVE_LONG_g;
+alias H5T_NATIVE_ULONG = H5T_NATIVE_ULONG_g;
+alias H5T_NATIVE_LLONG = H5T_NATIVE_LLONG_g;
+alias H5T_NATIVE_ULLONG = H5T_NATIVE_ULLONG_g;
+alias H5T_NATIVE_FLOAT = H5T_NATIVE_FLOAT_g;
+alias H5T_NATIVE_DOUBLE = H5T_NATIVE_DOUBLE_g;
 /++
 static if ( H5_SIZEOF_LONG_DOUBLE !=0 ) {
-  alias H5T_NATIVE_LDOUBLE_g H5T_NATIVE_LDOUBLE;
+  alias H5T_NATIVE_LDOUBLE = H5T_NATIVE_LDOUBLE_g;
 }
 +/
-alias H5T_NATIVE_B8_g H5T_NATIVE_B8;
-alias H5T_NATIVE_B16_g H5T_NATIVE_B16;
-alias H5T_NATIVE_B32_g H5T_NATIVE_B32;
-alias H5T_NATIVE_B64_g H5T_NATIVE_B64;
-alias H5T_NATIVE_OPAQUE_g H5T_NATIVE_OPAQUE;
-alias H5T_NATIVE_HADDR_g H5T_NATIVE_HADDR;
-alias H5T_NATIVE_HSIZE_g H5T_NATIVE_HSIZE;
-alias H5T_NATIVE_HSSIZE_g H5T_NATIVE_HSSIZE;
-alias H5T_NATIVE_HERR_g H5T_NATIVE_HERR;
-alias H5T_NATIVE_HBOOL_g H5T_NATIVE_HBOOL;
+alias H5T_NATIVE_B8 = H5T_NATIVE_B8_g;
+alias H5T_NATIVE_B16 = H5T_NATIVE_B16_g;
+alias H5T_NATIVE_B32 = H5T_NATIVE_B32_g;
+alias H5T_NATIVE_B64 = H5T_NATIVE_B64_g;
+alias H5T_NATIVE_OPAQUE = H5T_NATIVE_OPAQUE_g;
+alias H5T_NATIVE_HADDR = H5T_NATIVE_HADDR_g;
+alias H5T_NATIVE_HSIZE = H5T_NATIVE_HSIZE_g;
+alias H5T_NATIVE_HSSIZE = H5T_NATIVE_HSSIZE_g;
+alias H5T_NATIVE_HERR = H5T_NATIVE_HERR_g;
+alias H5T_NATIVE_HBOOL = H5T_NATIVE_HBOOL_g;
 extern __gshared hid_t H5T_NATIVE_SCHAR_g;
 extern __gshared hid_t H5T_NATIVE_UCHAR_g;
 extern __gshared hid_t H5T_NATIVE_SHORT_g;
@@ -450,12 +450,12 @@ extern __gshared hid_t H5T_NATIVE_HERR_g;
 extern __gshared hid_t H5T_NATIVE_HBOOL_g;
 
 /* C9x integer types */
-alias H5T_NATIVE_INT8_g H5T_NATIVE_INT8;
-alias H5T_NATIVE_UINT8_g H5T_NATIVE_UINT8;
-alias H5T_NATIVE_INT_LEAST8_g H5T_NATIVE_INT_LEAST8;
-alias H5T_NATIVE_UINT_LEAST8_g H5T_NATIVE_UINT_LEAST8;
-alias H5T_NATIVE_INT_FAST8_g H5T_NATIVE_INT_FAST8;
-alias H5T_NATIVE_UINT_FAST8_g H5T_NATIVE_UINT_FAST8;
+alias H5T_NATIVE_INT8 = H5T_NATIVE_INT8_g;
+alias H5T_NATIVE_UINT8 = H5T_NATIVE_UINT8_g;
+alias H5T_NATIVE_INT_LEAST8 = H5T_NATIVE_INT_LEAST8_g;
+alias H5T_NATIVE_UINT_LEAST8 = H5T_NATIVE_UINT_LEAST8_g;
+alias H5T_NATIVE_INT_FAST8 = H5T_NATIVE_INT_FAST8_g;
+alias H5T_NATIVE_UINT_FAST8 = H5T_NATIVE_UINT_FAST8_g;
 extern __gshared hid_t H5T_NATIVE_INT8_g;
 extern __gshared hid_t H5T_NATIVE_UINT8_g;
 extern __gshared hid_t H5T_NATIVE_INT_LEAST8_g;
@@ -463,12 +463,12 @@ extern __gshared hid_t H5T_NATIVE_UINT_LEAST8_g;
 extern __gshared hid_t H5T_NATIVE_INT_FAST8_g;
 extern __gshared hid_t H5T_NATIVE_UINT_FAST8_g;
 
-alias H5T_NATIVE_INT16_g H5T_NATIVE_INT16;
-alias H5T_NATIVE_UINT16_g H5T_NATIVE_UINT16;
-alias H5T_NATIVE_INT_LEAST16_g H5T_NATIVE_INT_LEAST16;
-alias H5T_NATIVE_UINT_LEAST16_g H5T_NATIVE_UINT_LEAST16;
-alias H5T_NATIVE_INT_FAST16_g H5T_NATIVE_INT_FAST16;
-alias H5T_NATIVE_UINT_FAST16_g H5T_NATIVE_UINT_FAST16;
+alias H5T_NATIVE_INT16 = H5T_NATIVE_INT16_g;
+alias H5T_NATIVE_UINT16 = H5T_NATIVE_UINT16_g;
+alias H5T_NATIVE_INT_LEAST16 = H5T_NATIVE_INT_LEAST16_g;
+alias H5T_NATIVE_UINT_LEAST16 = H5T_NATIVE_UINT_LEAST16_g;
+alias H5T_NATIVE_INT_FAST16 = H5T_NATIVE_INT_FAST16_g;
+alias H5T_NATIVE_UINT_FAST16 = H5T_NATIVE_UINT_FAST16_g;
 extern __gshared hid_t H5T_NATIVE_INT16_g;
 extern __gshared hid_t H5T_NATIVE_UINT16_g;
 extern __gshared hid_t H5T_NATIVE_INT_LEAST16_g;
@@ -476,12 +476,12 @@ extern __gshared hid_t H5T_NATIVE_UINT_LEAST16_g;
 extern __gshared hid_t H5T_NATIVE_INT_FAST16_g;
 extern __gshared hid_t H5T_NATIVE_UINT_FAST16_g;
 
-alias H5T_NATIVE_INT32_g H5T_NATIVE_INT32;
-alias H5T_NATIVE_UINT32_g H5T_NATIVE_UINT32;
-alias H5T_NATIVE_INT_LEAST32_g H5T_NATIVE_INT_LEAST32;
-alias H5T_NATIVE_UINT_LEAST32_g H5T_NATIVE_UINT_LEAST32;
-alias H5T_NATIVE_INT_FAST32_g H5T_NATIVE_INT_FAST32;
-alias H5T_NATIVE_UINT_FAST32_g H5T_NATIVE_UINT_FAST32;
+alias H5T_NATIVE_INT32 = H5T_NATIVE_INT32_g;
+alias H5T_NATIVE_UINT32 = H5T_NATIVE_UINT32_g;
+alias H5T_NATIVE_INT_LEAST32 = H5T_NATIVE_INT_LEAST32_g;
+alias H5T_NATIVE_UINT_LEAST32 = H5T_NATIVE_UINT_LEAST32_g;
+alias H5T_NATIVE_INT_FAST32 = H5T_NATIVE_INT_FAST32_g;
+alias H5T_NATIVE_UINT_FAST32 = H5T_NATIVE_UINT_FAST32_g;
 extern __gshared hid_t H5T_NATIVE_INT32_g;
 extern __gshared hid_t H5T_NATIVE_UINT32_g;
 extern __gshared hid_t H5T_NATIVE_INT_LEAST32_g;
@@ -489,12 +489,12 @@ extern __gshared hid_t H5T_NATIVE_UINT_LEAST32_g;
 extern __gshared hid_t H5T_NATIVE_INT_FAST32_g;
 extern __gshared hid_t H5T_NATIVE_UINT_FAST32_g;
 
-alias H5T_NATIVE_INT64_g H5T_NATIVE_INT64;
-alias H5T_NATIVE_UINT64_g H5T_NATIVE_UINT64;
-alias H5T_NATIVE_INT_LEAST64_g H5T_NATIVE_INT_LEAST64;
-alias H5T_NATIVE_UINT_LEAST64_g H5T_NATIVE_UINT_LEAST64;
-alias H5T_NATIVE_INT_FAST64_g H5T_NATIVE_INT_FAST64;
-alias H5T_NATIVE_UINT_FAST64_g H5T_NATIVE_UINT_FAST64;
+alias H5T_NATIVE_INT64 = H5T_NATIVE_INT64_g;
+alias H5T_NATIVE_UINT64 = H5T_NATIVE_UINT64_g;
+alias H5T_NATIVE_INT_LEAST64 = H5T_NATIVE_INT_LEAST64_g;
+alias H5T_NATIVE_UINT_LEAST64 = H5T_NATIVE_UINT_LEAST64_g;
+alias H5T_NATIVE_INT_FAST64 = H5T_NATIVE_INT_FAST64_g;
+alias H5T_NATIVE_UINT_FAST64 = H5T_NATIVE_UINT_FAST64_g;
 extern __gshared hid_t H5T_NATIVE_INT64_g;
 extern __gshared hid_t H5T_NATIVE_UINT64_g;
 extern __gshared hid_t H5T_NATIVE_INT_LEAST64_g;

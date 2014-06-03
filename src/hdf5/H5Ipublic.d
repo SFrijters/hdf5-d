@@ -56,7 +56,7 @@ enum H5I_type_t {
 }
 
 /* Type of atoms to return to users */
-alias int hid_t;
+alias hid_t = int;
 enum H5_SIZEOF_HID_T = H5_SIZEOF_INT;
 
 /* An invalid object ID. This is also negative for error return. */
@@ -69,10 +69,10 @@ enum H5I_INVALID_HID = (-1);
  * can be removed from the ID type. If the function returns negative
  * (failure) then the object will remain in the ID type.
  */
-alias herr_t function(void*) H5I_free_t;
+alias H5I_free_t = herr_t function(void*);
 
 /* Type of the function to compare objects & keys */
-alias int function(void *obj, hid_t id, void *key) H5I_search_func_t;
+alias H5I_search_func_t = int function(void *obj, hid_t id, void *key);
 
 /* Public API functions */
 

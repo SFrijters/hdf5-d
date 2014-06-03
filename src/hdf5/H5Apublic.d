@@ -36,8 +36,8 @@ struct H5A_info_t {
 }
 
 /* Typedef for H5Aiterate2() callbacks */
-alias herr_t function(hid_t location_id/*in*/,
-    const char *attr_name/*in*/, const H5A_info_t *ainfo/*in*/, void *op_data/*in,out*/) H5A_operator2_t;
+alias H5A_operator2_t = herr_t function(hid_t location_id/*in*/,
+    const char *attr_name/*in*/, const H5A_info_t *ainfo/*in*/, void *op_data/*in,out*/);
 
 version(Posix) {
 

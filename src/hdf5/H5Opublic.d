@@ -130,11 +130,11 @@ struct H5O_info_t {
 }
 
 /* Typedef for message creation indexes */
-alias uint32_t H5O_msg_crt_idx_t;
+alias H5O_msg_crt_idx_t = uint32_t;
 
 /* Prototype for H5Ovisit/H5Ovisit_by_name() operator */
-alias herr_t function(hid_t obj, const char *name, const H5O_info_t *info,
-    void *op_data) H5O_iterate_t;
+alias H5O_iterate_t = herr_t function(hid_t obj, const char *name, const H5O_info_t *info,
+    void *op_data);
 
 enum H5O_mcdt_search_ret_t {
     H5O_MCDT_SEARCH_ERROR = -1,	/* Abort H5Ocopy */
@@ -143,7 +143,7 @@ enum H5O_mcdt_search_ret_t {
 };
 
 /* Callback to invoke when completing the search for a matching committed datatype from the committed dtype list */
-alias H5O_mcdt_search_ret_t function(void *op_data) H5O_mcdt_search_cb_t;
+alias H5O_mcdt_search_cb_t = H5O_mcdt_search_ret_t function(void *op_data);
 
 /********************/
 /* Public Variables */

@@ -32,7 +32,7 @@ extern(C):
  * team at hdf5dev@ncsa.uiuc.edu.  These values will never change because they
  * appear in the HDF5 files.
  */
-alias int H5Z_filter_t;
+alias H5Z_filter_t = int;
 
 /* Filter IDs */
 enum H5Z_FILTER_ERROR       = (-1);	/*no filter			*/
@@ -127,8 +127,8 @@ enum H5Z_cb_return_t {
 }
 
 /* Filter callback function definition */
-alias H5Z_cb_return_t function(H5Z_filter_t filter, void* buf,
-                                size_t buf_size, void* op_data) H5Z_filter_func_t;
+alias H5Z_filter_func_t = H5Z_cb_return_t function(H5Z_filter_t filter, void* buf,
+                                size_t buf_size, void* op_data);
 
 /* Structure for filter callback property */
 struct H5Z_cb_t {
@@ -156,7 +156,7 @@ struct H5Z_cb_t {
  * The "can_apply" callback returns positive a valid combination, zero for an
  * invalid combination and negative for an error.
  */
-alias htri_t function(hid_t dcpl_id, hid_t type_id, hid_t space_id) H5Z_can_apply_func_t;
+alias H5Z_can_apply_func_t = htri_t function(hid_t dcpl_id, hid_t type_id, hid_t space_id);
 
 /*
  * After the "can_apply" callbacks are checked for new datasets, the "set_local"
@@ -179,7 +179,7 @@ alias htri_t function(hid_t dcpl_id, hid_t type_id, hid_t space_id) H5Z_can_appl
  * The "set_local" callback must return non-negative on success and negative
  * for an error.
  */
-alias herr_t function(hid_t dcpl_id, hid_t type_id, hid_t space_id) H5Z_set_local_func_t;
+alias H5Z_set_local_func_t = herr_t function(hid_t dcpl_id, hid_t type_id, hid_t space_id);
 
 /*
  * A filter gets definition flags and invocation flags (defined above), the
@@ -196,9 +196,9 @@ alias herr_t function(hid_t dcpl_id, hid_t type_id, hid_t space_id) H5Z_set_loca
  * buffer. If an error occurs then the function should return zero and leave
  * all pointer arguments unchanged.
  */
-alias size_t function(uint flags, size_t cd_nelmts,
+alias H5Z_func_t = size_t function(uint flags, size_t cd_nelmts,
 			     const uint cd_values[], size_t nbytes,
-			     size_t *buf_size, void **buf) H5Z_func_t;
+			     size_t *buf_size, void **buf);
 
 /*
  * The filter table maps filter identification numbers to structs that

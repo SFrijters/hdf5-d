@@ -132,7 +132,7 @@ bool H5_VERSION_LE(Maj,Min,Rel)() {
  * 	if((dset = H5Dopen2(file, name)) < 0)
  *	    fprintf(stderr, "unable to open the requested dataset\n");
  */
-alias int herr_t;
+alias herr_t = int;
 
 
 /*
@@ -150,8 +150,8 @@ alias int herr_t;
  * 	    printf("error determining whether data type is committed\n");
  *	}
  */
-alias uint hbool_t;
-alias int htri_t;
+alias hbool_t = uint;
+alias htri_t = int;
 
 /++
 /* Define the ssize_t type if it not is defined */
@@ -174,13 +174,13 @@ typedef long long ssize_t;
 +/
 
 static if ( H5_SIZEOF_SIZE_T==H5_SIZEOF_INT ) {
-  alias int ssize_t;
+  alias ssize_t = int;
  }
 else static if ( H5_SIZEOF_SIZE_T==H5_SIZEOF_LONG ) {
-  alias long ssize_t;
+  alias ssize_t = long;
 }
 else static if ( H5_SIZEOF_SIZE_T==H5_SIZEOF_LONG_LONG ) {
-  alias long ssize_t;
+  alias ssize_t = long;
 }
 else {
   static assert(0, "nothing appropriate for ssize_t");
@@ -204,8 +204,8 @@ H5_GCC_DIAG_ON(long-long)
 +/
 
 static if ( H5_SIZEOF_LONG_LONG >= 8 ) {
-  alias ulong hsize_t;
-  alias long hssize_t;
+  alias hsize_t = ulong;
+  alias hssize_t = long;
 }
 else {
   static assert(0, "nothing appropriate for hsize_t");
@@ -249,25 +249,25 @@ else {
 +/
 
 static if (H5_SIZEOF_INT64_T >= 8 ) {
-  alias uint64_t haddr_t;
+  alias haddr_t = uint64_t;
   enum HADDR_UNDEF = ( cast(haddr_t) cast(int64_t)(-1));
   enum H5_SIZEOF_HADDR_T = H5_SIZEOF_INT64_T;
   enum HADDR_AS_MPI_TYPE = MPI_LONG_LONG_INT;
 }
 else static if (H5_SIZEOF_INT >= 8 ) {
-  alias uint haddr_t;
+  alias haddr_t = uint;
   enum HADDR_UNDEF = (cast(haddr_t)(-1));
   enum H5_SIZEOF_HADDR_T = H5_SIZEOF_INT;
   enum HADDR_AS_MPI_TYPE = MPI_UNSIGNED;
 }
 else static if (H5_SIZEOF_LONG >= 8 ) {
-  alias ulong haddr_t;
+  alias haddr_t = ulong;
   enum HADDR_UNDEF = (cast(haddr_t) cast(long)(-1));
   enum H5_SIZEOF_HADDR_T = H5_SIZEOF_LONG;
   enum HADDR_AS_MPI_TYPE = MPI_UNSIGNED_LONG;
 }
 else static if (H5_SIZEOF_LONG_LONG >= 8 ) {
-  alias ulong haddr_t;
+  alias haddr_t = ulong;
   enum HADDR_UNDEF = (cast(haddr_t) cast(long)(-1));
   enum H5_SIZEOF_HADDR_T = H5_SIZEOF_LONG_LONG;
   enum HADDR_AS_MPI_TYPE = MPI_LONG_LONG_INT;
@@ -338,15 +338,15 @@ else {
  */
 static if ( H5_SIZEOF_UINT64_T>=8 ) { }
  else static if ( H5_SIZEOF_INT>=8 ) {
-    alias uint uint64_t;
+    alias uint64_t = uint;
     enum H5_SIZEOF_UINT64_T = H5_SIZEOF_INT;
    }
  else static if ( H5_SIZEOF_LONG>=8 ) {
-    alias uint uint64_t;
+    alias uint64_t = uint;
     enum H5_SIZEOF_UINT64_T = H5_SIZEOF_LONG;
    }
  else static if ( H5_SIZEOF_LONG_LONG>=8 ) {
-    alias ulong uint64_t;
+    alias uint64_t = ulong;
     enum H5_SIZEOF_UINT64_T = H5_SIZEOF_LONG_LONG;
    }
    else {
