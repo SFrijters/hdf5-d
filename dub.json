@@ -1,0 +1,12 @@
+{
+    "name": "hdf5-d",
+    "description": "Bindings for the hdf5 IO library.",
+    "copyright": "Copyright © Stefan Frijters 2014-2015",
+    "authors": ["Stefan Frijters"],
+    "homepage": "https://github.com/SFrijters/hdf5-d",
+    "license": "BSL-1.0",
+
+    "targetType": "library",
+    "sourcePaths": [ "src" ],
+}
+

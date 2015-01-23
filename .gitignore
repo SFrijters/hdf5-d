@@ -1,3 +1,7 @@
 *.[oa]
 *.html
+.dub
+docs.json
+__dummy.html
+*.obj
 
