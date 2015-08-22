@@ -197,7 +197,7 @@ alias H5Z_set_local_func_t = herr_t function(hid_t dcpl_id, hid_t type_id, hid_t
  * all pointer arguments unchanged.
  */
 alias H5Z_func_t = size_t function(uint flags, size_t cd_nelmts,
-			     const uint cd_values[], size_t nbytes,
+			     const uint[] cd_values, size_t nbytes,
 			     size_t *buf_size, void **buf);
 
 /*

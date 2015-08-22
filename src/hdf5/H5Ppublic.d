@@ -243,20 +243,20 @@ herr_t H5Pset_obj_track_times(hid_t plist_id, hbool_t track_times);
 herr_t H5Pget_obj_track_times(hid_t plist_id, hbool_t *track_times);
 herr_t H5Pmodify_filter(hid_t plist_id, H5Z_filter_t filter,
         int flags, size_t cd_nelmts,
-        const int cd_values[/*cd_nelmts*/]);
+        const int[/*cd_nelmts*/] cd_values);
 herr_t H5Pset_filter(hid_t plist_id, H5Z_filter_t filter,
         int flags, size_t cd_nelmts,
-        const int c_values[]);
+        const int[] c_values);
 int H5Pget_nfilters(hid_t plist_id);
 H5Z_filter_t H5Pget_filter2(hid_t plist_id, uint filter,
        int *flags/*out*/,
        size_t *cd_nelmts/*out*/,
-       uint cd_values[]/*out*/,
-       size_t namelen, char name[],
+       uint[] cd_values/*out*/,
+       size_t namelen, char[] name,
        uint *filter_config /*out*/);
 herr_t H5Pget_filter_by_id2(hid_t plist_id, H5Z_filter_t id,
        uint *flags/*out*/, size_t *cd_nelmts/*out*/,
-       int cd_values[]/*out*/, size_t namelen, char name[]/*out*/,
+       int[] cd_values/*out*/, size_t namelen, char[] name/*out*/,
        int *filter_config/*out*/);
 htri_t H5Pall_filters_avail(hid_t plist_id);
 herr_t H5Premove_filter(hid_t plist_id, H5Z_filter_t filter);
@@ -486,10 +486,10 @@ herr_t H5Pinsert1(hid_t plist_id, const char *name, size_t size,
     H5P_prp_close_func_t prp_close);
 H5Z_filter_t H5Pget_filter1(hid_t plist_id, uint filter,
     int *flags/*out*/, size_t *cd_nelmts/*out*/,
-    uint cd_values[]/*out*/, size_t namelen, char name[]);
+    uint[] cd_values/*out*/, size_t namelen, char[] name);
 herr_t H5Pget_filter_by_id1(hid_t plist_id, H5Z_filter_t id,
     int *flags/*out*/, size_t *cd_nelmts/*out*/,
-    uint cd_values[]/*out*/, size_t namelen, char name[]/*out*/);
+    uint[] cd_values/*out*/, size_t namelen, char[] name/*out*/);
 
 #endif /* H5_NO_DEPRECATED_SYMBOLS */
 +/
