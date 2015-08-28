@@ -46,7 +46,7 @@ public import hdf5.H5Lpublic;
 // public import hdf5.H5MMpublic;
 public import hdf5.H5Opublic;
 public import hdf5.H5Ppublic;
-// public import hdf5.H5Rpublic;
+public import hdf5.H5Rpublic;
 public import hdf5.H5Spublic;
 public import hdf5.H5Tpublic;
 public import hdf5.H5Zpublic;
