@@ -137,7 +137,7 @@ version(Posix) {
   herr_t H5Dvlen_get_buf_size(hid_t dataset_id, hid_t type_id, hid_t space_id, hsize_t *size);
   herr_t H5Dfill(const void *fill, hid_t fill_type, void *buf,
                  hid_t buf_type, hid_t space);
-  herr_t H5Dset_extent(hid_t dset_id, const hsize_t[] size);
+  herr_t H5Dset_extent(hid_t dset_id, const hsize_t* size);
   herr_t H5Dscatter(H5D_scatter_func_t op, void *op_data, hid_t type_id,
                     hid_t dst_space_id, void *dst_buf);
   herr_t H5Dgather(hid_t src_space_id, const void *src_buf, hid_t type_id,

@@ -537,7 +537,7 @@ hid_t H5Tvlen_create(hid_t base_id);
 
 /* Operations defined on array datatypes */
 hid_t H5Tarray_create2(hid_t base_id, uint ndims,
-            const hsize_t[/* ndims */] dim);
+            const hsize_t*/* [ndims] */ dim);
 int H5Tget_array_ndims(hid_t type_id);
 int H5Tget_array_dims2(hid_t type_id, hsize_t[] dims);
 
